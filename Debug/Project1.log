@@ -1,0 +1,7 @@
+﻿  Computer Graphics.cpp
+c:\users\administrator\source\repos\project1\project1\computer graphics.h(1): warning C4068: 未知的杂注
+c:\users\administrator\source\repos\project1\project1\computer graphics.cpp(66): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+c:\users\administrator\source\repos\project1\project1\computer graphics.cpp(67): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+c:\users\administrator\source\repos\project1\project1\computer graphics.cpp(68): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+c:\users\administrator\source\repos\project1\project1\computer graphics.cpp(69): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  Project1.vcxproj -> C:\Users\Administrator\source\repos\Project1\Debug\Project1.exe
