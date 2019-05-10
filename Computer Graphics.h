@@ -1,5 +1,7 @@
 #pragma onc
 #include <iostream>
+#ifndef _Computer_Graphic_H
+#define  _Computer_Graphic_H
 class Line;
 class Point
 {
@@ -29,3 +31,4 @@ public:
 	void DDALine();    //DDA画直线方法
 	void Liang_Barsky(Point a, Point b);   //Liang_Barsky算法
 };
+#endif
