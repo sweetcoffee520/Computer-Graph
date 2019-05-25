@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iomanip>
 
+// 2019.5.23.01.00最终修改  --宋哲
 using namespace std;
 Matrix::Matrix()
 {
@@ -242,37 +243,39 @@ double Matrix::operator /(const double f)
 Matrix Matrix::Inverse()
 {
 	Matrix _copy = *this;
-	//变换结果
 	Matrix result(colNum);
+	Matrix error(colNum,colNum);
 	if (colNum != rowNum)
 	{
 		cout << "矩阵不可逆！" << endl;
 		return *this;
 	}
-	for (int i = 0; i < rowNum; i++)
+	for (int i = 0; i < colNum; i++)
 	{
 		int MaxRow = i;
-		//首先找到第i列的绝对值最大的数，并将该行和第i行互换
 		double max = fabs(_copy.get(i, i));
-		for (int j = i; j < colNum; j++)
+		for (int j = i; j < rowNum; j++)
 		{
-			if (fabs(_copy.get(j, j)) > max)
+			if (fabs(_copy.get(j, i)) > max)
 			{
-				max = fabs(_copy.get(j, j));
+				max = fabs(_copy.get(j, i));
 				MaxRow = j;
 			}
 		}
-		//交换j，i两行
+		if (max == 0)
+		{
+			cout << "不是满秩矩阵";
+			return error;
+		}
 		if (MaxRow != i)
 		{
 			result.RowSwap(i, MaxRow);
 			_copy.RowSwap(i, MaxRow);
 		}
-		//将第i行做初等行变换，将第一个非0元素化为1
 		double r = 1.0 / _copy.get(i, i);
+		//单位化
 		_copy.RowSwap(i, -1, r);
 		result.RowSwap(i, -1, r);
-		//消元
 		for (int j = 0; j < rowNum; j++)
 		{
 			if (j == i) continue;
@@ -281,5 +284,6 @@ Matrix Matrix::Inverse()
 			result.RowSwap(i, j, r);
 		}
 	}
+	
 	return result;
 }
