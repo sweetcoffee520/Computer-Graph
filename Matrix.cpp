@@ -286,10 +286,5 @@ Matrix Matrix::Inverse()
 			result.RowSwap(i, j, r);
 		}
 	}
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 00864b4d21d19721ecba0cccabd6775036dee25f
 	return result;
 }
